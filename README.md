@@ -29,3 +29,27 @@ map.computeIfAbsent(key, k -> new ArrayList<>()).add(value);
 - This single method makes Map feel almost like Python’s defaultdict, which makes grouping or caching tasks much easier.
 
 
+## 2. Want Faster Search? Use EnumMap Instead of HashMap for Enums
+
+You might know this in theory, but most developers never apply it.
+
+If your key is an enum:
+
+```java
+Map<Status, Integer> map = new HashMap<>();
+```
+
+…you’re leaving performance on the table.
+
+The better choice:
+
+```java
+Map<Status, Integer> map = new EnumMap<>(Status.class);
+```
+
+<h3>Why this matters:</h3>
+
+- Internally uses arrays
+- No hashing
+- Very compact memory layout
+- This is one of those optimizations that costs nothing and gives you free speed.
