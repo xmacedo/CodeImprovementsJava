@@ -53,3 +53,19 @@ Map<Status, Integer> map = new EnumMap<>(Status.class);
 - No hashing
 - Very compact memory layout
 - This is one of those optimizations that costs nothing and gives you free speed.
+
+
+
+## 3. Never Use RestTemplate Anymore — Use WebClient
+```java
+WebClient client = WebClient.builder()
+    .baseUrl("https://api.example.com")
+    .build();
+```
+
+<h3>Why?</h3>
+
+- Non-blocking
+- Handles backpressure
+- Better performance under load
+- Cleaner API
