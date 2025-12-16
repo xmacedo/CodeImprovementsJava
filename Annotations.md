@@ -37,3 +37,6 @@ mvn -Pnative native:compile
 ```
 
 The build takes 4 minutes instead of 30 seconds. But startup? 200ms.
+
+
+## 5. Reduce Auto Config
